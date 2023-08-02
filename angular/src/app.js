@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
+const db = require("./db");
+// Resto de la configuración de la aplicación
 
+app.listen(3000, () => console.log("Servidor iniciado en el puerto 3000"));
 // Importar el controlador de autenticación
 const authController = require("./controllers/auth.controller");
 

@@ -59,4 +59,10 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Ruta para el registro de nuevos usuarios
+router.post("/register", registerUser);
+
+// Ruta para el inicio de sesión
+router.post("/login", loginUser);
+
 module.exports = router;
