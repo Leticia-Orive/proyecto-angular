@@ -7,23 +7,22 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  username: string = '';
+  email: string = '';
+  password: string = '';
   constructor(private authService: AuthService) {}
-
-  login() {
-    // Lógica para obtener los datos del formulario de inicio de sesión (por ejemplo, email y contraseña)
+  onSubmit() {
     const credentials = {
-      email: 'user@example.com',
-      password: 'secretpassword',
+      email: this.email,
+      password: this.password,
     };
-
-    // Llamar al método login del servicio AuthService
     this.authService.login(credentials).subscribe(
       (response) => {
-        // Procesar la respuesta del servidor si el inicio de sesión es exitoso
+        // Manejar la respuesta del servidor en caso de éxito
         console.log('Inicio de sesión exitoso', response);
       },
       (error) => {
-        // Manejar el error si el inicio de sesión falla
+        // Manejar errores en caso de fallo en el inicio de sesión
         console.error('Error en el inicio de sesión', error);
       }
     );
