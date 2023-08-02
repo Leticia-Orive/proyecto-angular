@@ -66,3 +66,23 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 
 module.exports = router;
+const connection = require("../db");
+
+exports.registerUser = (req, res) => {
+  // Obtén los datos del usuario desde el cuerpo de la solicitud
+  const { username, password, email, nombre, edad, ...otrosCampos } = req.body;
+
+  // Ejecuta una consulta SQL para insertar el nuevo usuario en la base de datos
+  const sql =
+    "INSERT INTO usuarios (username, password, email, nombre, edad, ...) VALUES (?, ?, ?, ?, ?, ...)";
+  const values = [username, password, email, nombre, edad, ...otrosValores];
+
+  connection.query(sql, values, (err, result) => {
+    if (err) {
+      console.error("Error al registrar el usuario:", err);
+      res.status(500).json({ message: "Error al registrar el usuario" });
+    } else {
+      res.json({ message: "Usuario registrado exitosamente" });
+    }
+  });
+};

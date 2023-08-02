@@ -1,13 +1,10 @@
-// db.js
+const mysql = require("mysql2");
 
-const mongoose = require("mongoose");
+const connection = mysql.createConnection({
+  host: "localhost", // Cambia esto por la dirección de tu servidor MySQL
+  user: "root", // Cambia esto por el usuario de tu base de datos
+  password: "password", // Cambia esto por la contraseña de tu base de datos
+  database: "my_database", // Cambia esto por el nombre de tu base de datos
+});
 
-mongoose
-  .connect("mongodb://localhost:27017/mydatabase", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Conexión a la base de datos exitosa"))
-  .catch((err) =>
-    console.error("Error en la conexión a la base de datos:", err)
-  );
+module.exports = connection;
