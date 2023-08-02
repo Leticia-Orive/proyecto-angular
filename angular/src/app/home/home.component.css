@@ -1,0 +1,17 @@
+.welcome-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.news-section {
+  margin-top: 50px;
+}
+
+.news-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news-section li {
+  margin-bottom: 10px;
+}
