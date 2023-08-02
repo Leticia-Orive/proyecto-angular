@@ -10,16 +10,17 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): Observable<any> {
-    const body = { email, password };
-    return this.http.post<any>(`${this.baseUrl}/login`, body);
+  // Método para iniciar sesión
+  login(credentials: any): Observable<any> {
+    const url = `${this.baseUrl}/login`; // Ruta para el inicio de sesión en el servidor
+    return this.http.post<any>(url, credentials);
   }
 
-  register(email: string, password: string, name: string): Observable<any> {
-    const body = { email, password, name };
-    return this.http.post<any>(`${this.baseUrl}/register`, body);
+  // Método para registrarse
+  register(userData: any): Observable<any> {
+    const url = `${this.baseUrl}/register`; // Ruta para el registro en el servidor
+    return this.http.post<any>(url, userData);
   }
-
   logout(): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/logout`, {});
   }
