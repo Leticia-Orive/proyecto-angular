@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Pelicula } from '../models/peliculas';
 import { PeliculasService } from '../services/peliculas.service';
-import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-peliculas',
@@ -11,65 +11,54 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PeliculasComponent implements OnInit {
   private apiUrl = 'URL_DEL_BACKEND'; // Reemplaza 'URL_DEL_BACKEND' con la URL de tu backend
-
   // Propiedades para el formulario
   pelicula: Pelicula = new Pelicula();
   isEditing: boolean = false;
-  peliculas: never[];
 
-  // Otras propiedades y métodos para la lista de películas, etc.
   // Lista de películas
   listaPeliculas: Pelicula[] = [];
 
   constructor(
     private peliculaService: PeliculasService,
     private http: HttpClient
-  ) {
-    // Inicializar la lista de películas con algunos datos de ejemplo
-    this.peliculas = [
-      // Películas de ejemplo...
-    ];
-  }
+  ) {}
   // Método para obtener todas las películas
   obtenerPeliculas(): Observable<Pelicula[]> {
     return this.http.get<Pelicula[]>(this.apiUrl);
   }
-
-  // Obtener todas las películas
-  getPeliculas(): Observable<Pelicula[]> {
-    return of(this.peliculas);
-  }
-
   ngOnInit() {
-    // Lógica para obtener la lista de películas
+    // Cargar la lista de películas al inicializar el componente
     this.cargarListaPeliculas();
   }
+
   // Método para cargar la lista de películas desde el servicio
   cargarListaPeliculas() {}
 
   // Método para agregar una película
-  agregarPelicula(pelicula: Pelicula): Observable<void> {
-    // Asegúrate de que el método 'post' devuelva un 'Observable<void>'
-    return this.http.post<void>(this.apiUrl, pelicula);
+  agregarPelicula(pelicula: Pelicula): Observable<any> {
+    // Asegúrate de que el método 'post' devuelva un 'Observable<any>'
+    return this.http.post<any>(this.apiUrl, pelicula);
   }
 
   // Método para editar una película
-  editarPelicula(pelicula: Pelicula): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${pelicula.id}`, pelicula);
+  editarPelicula(pelicula: Pelicula): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${pelicula.id}`, pelicula);
+  }
+
+  // Método para eliminar una película
+  borrarPelicula(pelicula: Pelicula): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${pelicula.id}`);
   }
 
   // Método para cargar los datos de una película en el formulario para editar
   cargarPeliculaParaEditar(pelicula: Pelicula) {
     this.pelicula = { ...pelicula }; // Copiar el objeto para evitar modificar la lista original
-    this.isEditing = true;
+    this.isEditing = true; // Entrar en modo de edición
   }
-  // Método para eliminar una película
-  borrarPelicula(pelicula: Pelicula): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${pelicula.id}`);
-  }
+
   // Método para cancelar la edición o limpiar el formulario
   cancelarEdicion() {
-    this.pelicula = new Pelicula();
-    this.isEditing = false;
+    this.pelicula = new Pelicula(); // Limpiar el formulario
+    this.isEditing = false; // Salir del modo de edición
   }
 }
