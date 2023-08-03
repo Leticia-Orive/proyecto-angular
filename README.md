@@ -38,3 +38,6 @@ INSTALACION GENERAL
         2.8 Utilizar guards para proteger rutas: Si tienes páginas que solo deben ser accesibles para usuarios autenticados, puedes utilizar guards de ruta en Angular para proteger esas rutas. Los guards de ruta te permiten controlar el acceso a rutas en función de la autenticación del usuario.
 
         2.9 Almacenar el estado de autenticación: Para mantener el estado de autenticación del usuario en la aplicación, puedes utilizar servicios o técnicas de almacenamiento local como localStorage o sessionStorage.
+
+4.  En el componente header creamos un nav que enlace con las demas paginas.
+5.  Creamos los componentes peliculas y reservas
