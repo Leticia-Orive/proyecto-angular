@@ -54,3 +54,16 @@ INSTALACION GENERAL
     5. Al hacer clic en los botones de editar y borrar en la tabla de películas, puedes invocar los métodos correspondientes en el componente PeliculasComponent para realizar las operaciones de edición y borrado.
 
     6. Asegúrate de actualizar la lista de películas en el componente después de agregar, editar o borrar una película para que los cambios se reflejen correctamente en la interfaz de usuario.
+
+7.  En el componente de reserva quiero editar,borrar y añadir
+    1. Paso 1: Instalar Angular Material
+       Primero, asegúrate de tener instalado Angular Material en tu proyecto. Si aún no lo has hecho, puedes instalarlo ejecutando el siguiente comando:
+       ng add @angular/material
+    2. Paso 2: Crear el componente del modal
+       Crea un nuevo componente llamado ReservaModalComponent que contendrá el formulario para agregar/editar reservas.
+    3. Paso 3: Configurar el modal en el componente ReservasComponent
+       En el componente ReservasComponent, importa los módulos necesarios de Angular Material y crea un método para abrir el modal
+    4. Paso 4: Crear el formulario en el componente
+       En el componente ReservaModalComponent, puedes crear el formulario para agregar/editar reservas. Utiliza [(ngModel)] para vincular los campos del formulario a las propiedades de la reserva.
+    5. Paso 5: Configurar el componente
+       En el componente ReservaModalComponent, puedes recibir los datos de la reserva y si se está editando o agregando una nueva reserva.
