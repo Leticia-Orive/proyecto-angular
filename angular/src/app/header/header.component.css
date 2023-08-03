@@ -1,0 +1,31 @@
+.vertical-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-menu a {
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.vertical-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.login-buttons {
+  margin-top: 20px;
+}
+
+.login-buttons a {
+  display: block;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+}
+
+.login-buttons a:hover {
+  background-color: #0056b3;
+}
