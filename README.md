@@ -41,3 +41,16 @@ INSTALACION GENERAL
 
 4.  En el componente header creamos un nav que enlace con las demas paginas.
 5.  Creamos los componentes peliculas y reservas
+6.  En el componente de peliculas quiero editar,borrar y añadir
+
+    1. Crea un formulario para agregar y editar películas en el componente PeliculasComponent. El formulario debe tener campos para el título, la descripción, el género, el año de lanzamiento, etc. Puedes utilizar la directiva ngModel para vincular los campos del formulario a propiedades del componente.
+
+    2. Agrega una tabla para mostrar la lista de películas en el componente PeliculasComponent. La tabla debe mostrar información relevante sobre cada película y tener botones para editar y borrar cada película.
+
+    3. Crea métodos en el componente PeliculasComponent para agregar, editar y borrar películas. Por ejemplo, puedes tener métodos como addPelicula(), editPelicula(), deletePelicula(), etc. Estos métodos utilizarán el servicio MovieService para interactuar con la API y realizar las operaciones correspondientes en el servidor.
+
+    4. En el formulario de agregar/editar películas, puedes utilizar la misma plantilla HTML y cambiar su comportamiento dependiendo de si se está agregando una nueva película o editando una existente. Puedes utilizar una variable booleana en el componente para controlar si el formulario está en modo de edición o modo de agregar.
+
+    5. Al hacer clic en los botones de editar y borrar en la tabla de películas, puedes invocar los métodos correspondientes en el componente PeliculasComponent para realizar las operaciones de edición y borrado.
+
+    6. Asegúrate de actualizar la lista de películas en el componente después de agregar, editar o borrar una película para que los cambios se reflejen correctamente en la interfaz de usuario.

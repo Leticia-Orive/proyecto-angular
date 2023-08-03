@@ -1,1 +1,32 @@
-<p>peliculas works!</p>
+<div>
+  <h2>Agregar o Editar Película</h2>
+  <form>
+    <div>
+      <label>Título:</label>
+      <input type="text" [(ngModel)]="pelicula.title" name="title" required />
+    </div>
+    <div>
+      <label>Descripción:</label>
+      <textarea
+        [(ngModel)]="pelicula.description"
+        name="description"
+        required
+      ></textarea>
+    </div>
+    <div>
+      <label>Género:</label>
+      <input type="text" [(ngModel)]="pelicula.genre" name="genre" required />
+    </div>
+    <div>
+      <label>Año de Lanzamiento:</label>
+      <input type="number" [(ngModel)]="pelicula.year" name="year" required />
+    </div>
+    <div>
+      <button (click)="agregarPelicula(pelicula)">Agregar película</button>
+      <button (click)="editarPelicula(pelicula)">Editar película</button>
+      Guardar Cambios
+
+      <button (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </form>
+</div>
