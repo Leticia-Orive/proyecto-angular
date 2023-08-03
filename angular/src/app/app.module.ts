@@ -11,6 +11,10 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { PeliculasComponent } from './peliculas/peliculas.component';
 import { ReservasComponent } from './reservas/reservas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReservaModalComponent } from './reserva-modal/reserva-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +25,17 @@ import { ReservasComponent } from './reservas/reservas.component';
     RegisterComponent,
     PeliculasComponent,
     ReservasComponent,
+    ReservaModalComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

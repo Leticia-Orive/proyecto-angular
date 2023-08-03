@@ -1,1 +1,49 @@
-<p>reservas works!</p>
+<!-- Formulario para editar/agregar reserva -->
+<form (ngSubmit)="guardarCambios()">
+  <!-- Campos del formulario para la reserva (título, fecha, etc.) -->
+  <label>
+    Título:
+    <input type="text" [(ngModel)]="reserva.titulo" name="titulo" required />
+  </label>
+  <!-- Otros campos del formulario... -->
+
+  <!-- Botones para guardar y cancelar -->
+  <button type="submit">
+    {{ isEditing ? "Guardar Cambios" : "Agregar Reserva" }}
+  </button>
+  <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+</form>
+
+<!-- Tabla para mostrar la lista de reservas -->
+<table>
+  <tr *ngFor="let reserva of listaReservas">
+    <td>{{ reserva.titulo }}</td>
+    <!-- Otras columnas con información de la reserva... -->
+    <td>
+      <button (click)="cargarReservaParaEditar(reserva)">Editar</button>
+      <button (click)="borrarReserva(reserva)">Borrar</button>
+      <!-- reservas.component.html -->
+      <!-- Agregar -->
+      <button mat-raised-button color="primary" (click)="abrirModal()">
+        Agregar Reserva
+      </button>
+
+      <!-- Editar -->
+      <button mat-icon-button (click)="abrirModal(reserva)">
+        <!-- reservas.component.html -->
+
+        <table>
+          <tr *ngFor="let reserva of listaReservas">
+            <td>{{ reserva.nombreCliente }}</td>
+            <td>{{ reserva.fechaInicio | date }}</td>
+            <td>{{ reserva.fechaFin | date }}</td>
+            <td>{{ reserva.cantidadPersonas }}</td>
+            <td>
+              <button (click)="cargarReservaParaEditar(reserva)">Editar</button>
+            </td>
+          </tr>
+        </table>
+      </button>
+    </td>
+  </tr>
+</table>
