@@ -1,0 +1,27 @@
+<!-- reserva-modal.component.html -->
+<h2 mat-dialog-title>{{ editar ? "Editar Reserva" : "Agregar Reserva" }}</h2>
+<div mat-dialog-content>
+  <form #reservaForm="ngForm">
+    <!-- Aquí colocas los campos del formulario, por ejemplo -->
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="reserva.nombreCliente"
+        name="nombre"
+        placeholder="Nombre"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="reserva.fechaFin"
+        name="fecha"
+        placeholder="Fecha"
+      />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button mat-button (click)="onSaveClick()">Guardar</button>
+</div>
