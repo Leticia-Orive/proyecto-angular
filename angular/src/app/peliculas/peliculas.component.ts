@@ -55,6 +55,16 @@ export class PeliculasComponent implements OnInit {
     this.pelicula = { ...pelicula }; // Copiar el objeto para evitar modificar la lista original
     this.isEditing = true; // Entrar en modo de edición
   }
+  // Método para guardar los cambios de una película
+  guardarCambios() {
+    // Aquí puedes implementar la lógica para guardar los cambios de la película
+    // Llamar al método editarPelicula() o agregarPelicula() dependiendo del caso
+    if (this.isEditing) {
+      this.editarPelicula(this.pelicula); // Pasar la película a editar como argumento
+    } else {
+      this.agregarPelicula(this.pelicula);
+    }
+  }
 
   // Método para cancelar la edición o limpiar el formulario
   cancelarEdicion() {
