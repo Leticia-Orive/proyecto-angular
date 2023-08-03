@@ -1,68 +1,23 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        [(ngModel)]="email"
-        #emailInput="ngModel"
-      />
-      <form (ngSubmit)="onSubmit()">
-        <input type="text" name="username" [(ngModel)]="username" required />
-        <input
-          type="password"
-          name="password"
-          [(ngModel)]="password"
-          required
-        />
-        <button type="submit">Iniciar sesión</button>
-      </form>
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        required
-        [(ngModel)]="password"
-        #passwordInput="ngModel"
-      />
-      <div
-        *ngIf="
-          passwordInput.invalid &&
-          (passwordInput.dirty || passwordInput.touched)
-        "
-      >
-        <form (ngSubmit)="onSubmit()">
-          <div>
-            <label for="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              [(ngModel)]="username"
-              required
-            />
-          </div>
-          <div>
-            <label for="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              [(ngModel)]="password"
-              required
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
-      </div>
-    </div>
-  </form>
-</div>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="username"
+      required
+    />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+  </div>
+  <button type="submit">iniciar sesion</button>
+</form>
