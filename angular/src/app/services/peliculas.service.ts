@@ -5,6 +5,9 @@ import { Pelicula } from '../models/peliculas';
   providedIn: 'root',
 })
 export class PeliculasService {
+  obtenerPeliculas() {
+    throw new Error('Method not implemented.');
+  }
   private peliculas: Pelicula[];
 
   constructor() {

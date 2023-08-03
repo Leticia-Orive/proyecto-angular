@@ -18,6 +18,8 @@ export class PeliculasComponent implements OnInit {
   peliculas: never[];
 
   // Otras propiedades y métodos para la lista de películas, etc.
+  // Lista de películas
+  listaPeliculas: Pelicula[] = [];
 
   constructor(
     private peliculaService: PeliculasService,
@@ -28,6 +30,11 @@ export class PeliculasComponent implements OnInit {
       // Películas de ejemplo...
     ];
   }
+  // Método para obtener todas las películas
+  obtenerPeliculas(): Observable<Pelicula[]> {
+    return this.http.get<Pelicula[]>(this.apiUrl);
+  }
+
   // Obtener todas las películas
   getPeliculas(): Observable<Pelicula[]> {
     return of(this.peliculas);
@@ -35,7 +42,10 @@ export class PeliculasComponent implements OnInit {
 
   ngOnInit() {
     // Lógica para obtener la lista de películas
+    this.cargarListaPeliculas();
   }
+  // Método para cargar la lista de películas desde el servicio
+  cargarListaPeliculas() {}
 
   // Método para agregar una película
   agregarPelicula(pelicula: Pelicula): Observable<void> {
@@ -53,7 +63,10 @@ export class PeliculasComponent implements OnInit {
     this.pelicula = { ...pelicula }; // Copiar el objeto para evitar modificar la lista original
     this.isEditing = true;
   }
-
+  // Método para eliminar una película
+  borrarPelicula(pelicula: Pelicula): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${pelicula.id}`);
+  }
   // Método para cancelar la edición o limpiar el formulario
   cancelarEdicion() {
     this.pelicula = new Pelicula();

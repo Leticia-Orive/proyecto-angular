@@ -1,3 +1,29 @@
+<!-- Tabla para mostrar la lista de películas -->
+<table>
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>genre</th>
+      <th>year</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Utiliza *ngFor para iterar sobre la lista de películas -->
+    <tr *ngFor="let pelicula of listaPeliculas">
+      <td>{{ pelicula.title }}</td>
+      <td>{{ pelicula.description }}</td>
+      <td>{{ pelicula.genre }}</td>
+      <td>{{ pelicula.year }}</td>
+      <td>
+        <!-- Botones para editar y borrar la película -->
+        <button (click)="editarPelicula(pelicula)">Editar</button>
+        <button (click)="borrarPelicula(pelicula)">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <div>
   <h2>Agregar o Editar Película</h2>
   <form>
